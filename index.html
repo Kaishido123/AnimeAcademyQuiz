@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anime Academy Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <button id="musicBtn">🎵 BGM ON</button>
+<audio id="bgm" loop>
+    <source src="assets/audio/Existencia tuos.mp3" type="audio/mpeg">
+</audio>
+
+    <!-- Background -->
+
+    <div id="background"></div>
+
+    <div id="overlay"></div>
+
+    <!-- ================= HOME ================= -->
+
+    <section id="homeScreen" class="screen">
+
+        <div class="menu">
+
+            <h1 class="game-title">
+
+                <span>ANIME</span>
+                <span>ACADEMY</span>
+                <span>QUIZ</span>
+
+            </h1>
+
+            <p class="subtitle">
+
+                知識を試したいのですね！！
+
+            </p>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Enter your name">
+
+            <h3>Select Difficulty</h3>
+
+            <div class="difficulty">
+
+                <button class="difficultyBtn active"
+                        data-level="easy">
+
+                    Easy
+
+                </button>
+
+                <button class="difficultyBtn"
+                        data-level="normal">
+
+                    Normal
+
+                </button>
+
+                <button class="difficultyBtn"
+                        data-level="hard">
+
+                    Hard
+
+                </button>
+
+            </div>
+
+            <button id="startBtn">
+
+                START GAME
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ROULETTE ================= -->
+
+    <section id="rouletteScreen"
+             class="screen hidden">
+
+        <div class="menu">
+
+            <h1>Subject Roulette</h1>
+
+            <div id="rouletteText">
+
+                READY
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUIZ ================= -->
+</div>
+
+    <section id="quizScreen"
+             class="screen hidden">
+
+        <div class="menu">
+
+            <h2 id="questionNumber">
+
+                Question 1 / 10
+            </h2>
+          <div class="progressBar">
+    <div id="progressFill"></div>
+</div>
+
+<div id="progressText">0%</div>
+
+<h1 id="question">
+
+                Question
+
+            </h1>
+
+            <div id="answers">
+
+            </div>
+
+            <div id="score">
+
+                Score : 0
+
+            </div>
+
+        </div>
+     
+    </section>
+    
+
+
+    <!-- ================= RESULT ================= -->
+
+    <section id="resultScreen"
+             class="screen hidden">
+
+        <div class="menu">
+
+            <h1>Result</h1>
+
+            <h2 id="finalScore">
+
+                0
+
+            </h2>
+
+            <h3 id="rank">
+
+                Rank C
+
+            </h3>
+
+            <button id="rankingBtn">
+
+                High Scores
+
+            </button>
+            <button id="shareBtn">
+                Share on X
+             </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RANKING ================= -->
+
+    <section id="rankingScreen"
+             class="screen hidden">
+
+        <div class="menu">
+
+            <h1>High Scores</h1>
+
+            <div id="rankingList">
+
+            </div>
+
+            <button id="backBtn">
+
+                Back To Title
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="question.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
