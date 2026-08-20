@@ -71,19 +71,19 @@ let currentQuiz = [];
 
 const backgrounds = [
 
-    "assets/images/img1.png",
-    "assets/images/img2.png",
-    "assets/images/img3.png",
-    "assets/images/img4.png",
-    "assets/images/img5.png",
-    "assets/images/img6.png",
-    "assets/images/img7.png",
-    "assets/images/img8.png",
-    "assets/images/img9.png",
-    "assets/images/img10.png",
-    "assets/images/img11.png",
-    "assets/images/img12.png",
-    "assets/images/img13.png",
+    "img1.png",
+    "img2.png",
+    "img3.png",
+    "img4.png",
+    "img5.png",
+    "img6.png",
+    "img7.png",
+    "img8.png",
+    "img9.png",
+    "img10.png",
+    "img11.png",
+    "img12.png",
+    "img13.png",
 
 ];
 
