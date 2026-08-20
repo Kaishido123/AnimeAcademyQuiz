@@ -1,0 +1,1016 @@
+/* ===========================================
+   Anime Academy Quiz
+   style.css
+=========================================== */
+
+/* ---------- Reset ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+
+    width:100%;
+    height:100%;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    overflow:hidden;
+
+    color:white;
+
+}
+
+/* ---------- Background ---------- */
+
+#background{
+
+    position:fixed;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    transition:
+        opacity .8s ease,
+        background-image .8s ease;
+
+    animation:
+        zoomBackground 12s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
+
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.55)
+        );
+
+    backdrop-filter:blur(4px);
+
+    z-index:-1;
+
+}
+
+/* ---------- Screen ---------- */
+
+.screen{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:1;
+
+    visibility:visible;
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+
+}
+
+.screen.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+/* ---------- Glass Panel ---------- */
+
+.menu{
+
+    width:700px;
+
+    max-width:92%;
+
+    padding:50px;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.20);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 10px 45px rgba(0,0,0,.35),
+
+        0 0 30px rgba(90,170,255,.20);
+
+    text-align:center;
+
+    animation:
+        floatMenu 6s ease-in-out infinite;
+
+}
+
+/* ---------- Title ---------- */
+
+.game-title{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    margin-bottom:20px;
+
+    line-height:.9;
+
+    letter-spacing:4px;
+
+}
+
+.game-title span{
+
+    font-size:60px;
+
+    font-weight:800;
+
+    text-shadow:
+
+        0 0 12px #55d6ff,
+
+        0 0 30px #3ba8ff;
+
+}
+
+.game-title span:nth-child(2){
+
+    color:#72d7ff;
+
+}
+
+.subtitle{
+
+    margin-bottom:30px;
+
+    color:#dddddd;
+
+    font-size:17px;
+
+}
+
+/* ---------- Input ---------- */
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    outline:none;
+
+    margin-top:18px;
+
+    margin-bottom:28px;
+
+    font-size:16px;
+
+    background:
+
+        rgba(255,255,255,.90);
+
+}
+
+/* ---------- Difficulty ---------- */
+
+.difficulty{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:18px;
+
+    margin-bottom:30px;
+
+}
+
+.difficultyBtn{
+
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:#444;
+
+    transition:.25s;
+
+}
+
+.difficultyBtn:hover{
+
+    transform:translateY(-3px);
+
+    background:#5b6cff;
+
+}
+
+.difficultyBtn.active{
+
+    background:#29a8ff;
+
+    box-shadow:
+
+        0 0 15px rgba(41,168,255,.7);
+
+}
+
+/* ---------- Buttons ---------- */
+
+button{
+
+    font-size:16px;
+
+    font-weight:bold;
+
+}
+
+#startBtn,
+#rankingBtn,
+#backBtn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #6d5dfc
+        );
+
+    transition:.25s;
+
+    box-shadow:
+
+        0 0 18px rgba(80,150,255,.45);
+
+}
+
+#startBtn:hover,
+#rankingBtn:hover,
+#backBtn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 0 28px rgba(90,180,255,.9);
+
+}
+
+/* ===========================================
+   Roulette Screen
+=========================================== */
+
+#rouletteText{
+
+    margin-top:30px;
+
+    font-size:60px;
+
+    font-weight:800;
+
+    letter-spacing:6px;
+
+    color:#ffffff;
+
+    text-shadow:
+
+        0 0 12px cyan,
+
+        0 0 25px cyan,
+
+        0 0 40px #4facfe;
+
+    min-height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+    
+
+}
+#rouletteText{
+    transition:.4s;
+}
+
+.rouletteWin{
+
+    animation:rouletteWin .8s ease;
+
+}
+
+
+/* ===========================================
+   Quiz Screen
+=========================================== */
+
+#questionNumber{
+
+    font-size:20px;
+
+    color:#dddddd;
+
+    margin-bottom:15px;
+
+}
+
+#question{
+
+    font-size:40px;
+
+    margin-bottom:30px;
+
+    line-height:1.4;
+
+}
+
+#answers{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.answerBtn{
+
+    width:100%;
+
+    padding:20px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    transition:.25s;
+
+    font-size:18px;
+
+}
+
+.answerBtn:hover{
+
+    transform:translateX(8px);
+
+    background:#3b82f6;
+
+}
+
+.answerBtn.correct{
+
+    background:#22c55e;
+
+}
+
+.answerBtn.wrong{
+
+    background:#ef4444;
+
+}
+
+#score{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#72d7ff;
+
+}
+
+/* ===========================================
+   Result Screen
+=========================================== */
+
+#finalScore{
+
+    font-size:80px;
+
+    margin:20px 0;
+
+    color:#72d7ff;
+
+    text-shadow:
+
+        0 0 20px #4facfe;
+
+}
+
+#rank{
+
+    font-size:36px;
+
+    margin-bottom:35px;
+
+    letter-spacing:3px;
+
+}
+
+/* ===========================================
+   Ranking
+=========================================== */
+
+#rankingList{
+
+    width:100%;
+
+    max-height:350px;
+
+    overflow-y:auto;
+
+    margin:25px 0;
+
+    text-align:left;
+
+}
+
+.rankItem{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 20px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.10);
+
+    transition:.25s;
+
+}
+
+.rankItem:hover{
+
+    background:rgba(255,255,255,.20);
+
+    transform:translateX(5px);
+
+}
+
+.rankName{
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+
+.rankScore{
+
+    color:#72d7ff;
+
+    font-weight:bold;
+
+}
+
+/* ===========================================
+   Scrollbar
+=========================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#5aa9ff;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#8ecbff;
+
+}
+/* ===========================================
+   Animations
+=========================================== */
+
+@keyframes zoomBackground{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+@keyframes floatMenu{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.04);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================================
+   Apply Animations
+=========================================== */
+
+#background{
+
+    animation:
+        zoomBackground 15s ease-in-out infinite alternate;
+
+}
+
+.menu{
+
+    animation:
+        floatMenu 6s ease-in-out infinite,
+        fadeIn .8s ease;
+
+}
+
+.game-title{
+
+    animation:
+        pulse 5s infinite;
+
+}
+
+/* ===========================================
+   Focus Effects
+=========================================== */
+
+input:focus{
+
+    box-shadow:
+
+        0 0 20px rgba(114,215,255,.6);
+
+}
+
+.answerBtn:active,
+button:active{
+
+    transform:scale(.96);
+
+}
+
+/* ===========================================
+   Responsive
+=========================================== */
+
+@media (max-width:900px){
+
+    .menu{
+
+        width:90%;
+
+        padding:30px;
+
+    }
+
+    .game-title span{
+
+        font-size:48px;
+
+    }
+
+    #question{
+
+        font-size:24px;
+
+    }
+
+    #rouletteText{
+
+        font-size:48px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .menu{
+
+        width:95%;
+
+        padding:22px;
+
+    }
+
+    .game-title span{
+
+        font-size:36px;
+
+    }
+
+    .subtitle{
+
+        font-size:14px;
+
+    }
+
+    input{
+
+        font-size:15px;
+
+    }
+
+    .difficulty{
+
+        flex-direction:column;
+
+    }
+
+    .difficultyBtn{
+
+        width:100%;
+
+    }
+
+    #question{
+
+        font-size:20px;
+
+    }
+
+    .answerBtn{
+
+        font-size:15px;
+
+        padding:14px;
+
+    }
+
+    #rouletteText{
+
+        font-size:36px;
+
+    }
+
+    #finalScore{
+
+        font-size:60px;
+
+    }
+
+}
+
+/* ===========================================
+   Utility
+=========================================== */
+
+.hide{
+
+    display:none !important;
+
+}
+
+.show{
+
+    display:block !important;
+
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ===========================================
+   End of File
+=========================================== */
+/*=====================================================
+progress bar
+======================================================*/
+.progressBar{
+
+    width:100%;
+    height: 10px;
+    margin: 10px 0 8px;
+
+
+
+}
+
+#progressFill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#00d2ff,#500850);
+
+    transition:.4s;
+
+}
+#progressText{
+
+    text-align:right;
+
+    margin-top:6px;
+
+    margin-bottom:18px;
+
+    color:#72d7ff;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+}
+/*-----------------correct-----------------*/
+.correct{
+
+    animation:correctFlash .5s;
+
+}
+
+@keyframes correctFlash{
+
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+
+}
+/*------------------false-----------------------*/
+.wrong{
+
+    animation:shake .4s;
+
+}
+
+/*----------------roulette en--------------------------*/
+
+@keyframes shake{
+
+0%{transform:translateX(0);}
+25%{transform:translateX(-8px);}
+50%{transform:translateX(8px);}
+75%{transform:translateX(-5px);}
+100%{transform:translateX(0);}
+
+}
+@keyframes rouletteWin{
+
+    0%{
+
+        transform:scale(1);
+
+        color:white;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        color:#ffe066;
+
+        text-shadow:
+            0 0 10px #fff,
+            0 0 25px gold,
+            0 0 50px gold;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.rouletteWin{
+
+    animation:rouletteWin .8s ease;
+
+}
+
+
+
+
+#musicBtn{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:999;
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:rgba(0,0,0,.45);
+
+    color:white;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(8px);
+
+    transition:.25s;
+
+}
+
+#musicBtn:hover{
+
+    transform:scale(1.05);
+
+}
+#quizScreen .menu{
+
+    width:800px;
+    max-width:92%;
+
+}
+
+
+
+
+/*========share button==========*/
+#shareBtn{
+
+    width:100%;
+    margin-top:15px;
+    padding:16px;
+
+    border:none;
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:#000;
+
+    color:white;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+}
+
+#shareBtn:hover{
+
+    transform:translateY(-3px);
+
+}
